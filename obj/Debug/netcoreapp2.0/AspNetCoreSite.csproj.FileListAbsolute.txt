@@ -1,0 +1,10 @@
+C:\Users\Doug Ortiz\Downloads\Dropbox\ByteCubed\Docker\iis\AspNetCoreSite\bin\Debug\netcoreapp2.0\AspNetCoreSite.deps.json
+C:\Users\Doug Ortiz\Downloads\Dropbox\ByteCubed\Docker\iis\AspNetCoreSite\bin\Debug\netcoreapp2.0\AspNetCoreSite.runtimeconfig.json
+C:\Users\Doug Ortiz\Downloads\Dropbox\ByteCubed\Docker\iis\AspNetCoreSite\bin\Debug\netcoreapp2.0\AspNetCoreSite.runtimeconfig.dev.json
+C:\Users\Doug Ortiz\Downloads\Dropbox\ByteCubed\Docker\iis\AspNetCoreSite\bin\Debug\netcoreapp2.0\AspNetCoreSite.dll
+C:\Users\Doug Ortiz\Downloads\Dropbox\ByteCubed\Docker\iis\AspNetCoreSite\bin\Debug\netcoreapp2.0\AspNetCoreSite.pdb
+C:\Users\Doug Ortiz\Downloads\Dropbox\ByteCubed\Docker\iis\AspNetCoreSite\obj\Debug\netcoreapp2.0\AspNetCoreSite.csproj.CoreCompileInputs.cache
+C:\Users\Doug Ortiz\Downloads\Dropbox\ByteCubed\Docker\iis\AspNetCoreSite\obj\Debug\netcoreapp2.0\AspNetCoreSite.AssemblyInfoInputs.cache
+C:\Users\Doug Ortiz\Downloads\Dropbox\ByteCubed\Docker\iis\AspNetCoreSite\obj\Debug\netcoreapp2.0\AspNetCoreSite.AssemblyInfo.cs
+C:\Users\Doug Ortiz\Downloads\Dropbox\ByteCubed\Docker\iis\AspNetCoreSite\obj\Debug\netcoreapp2.0\AspNetCoreSite.dll
+C:\Users\Doug Ortiz\Downloads\Dropbox\ByteCubed\Docker\iis\AspNetCoreSite\obj\Debug\netcoreapp2.0\AspNetCoreSite.pdb

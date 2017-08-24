@@ -5,12 +5,12 @@
 
 FROM microsoft/dotnet:latest
 
-COPY bin /app
-COPY obj /app
-COPY wwwroot /app
-COPY AspNetCoreSite.csproj /app
-COPY Program.cs /app
-COPY Startup.cs /app
+COPY ../bin /app
+COPY ../obj /app
+COPY ../wwwroot /app
+COPY ../AspNetCoreSite.csproj /app
+COPY ../Program.cs /app
+COPY ../Startup.cs /app
 
 WORKDIR /app
 

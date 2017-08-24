@@ -1,0 +1,23 @@
+jobs:
+- name: job-publish
+  public: true
+  serial: true
+  plan:
+  - get: build-container
+  - put: aspnetcoresite-build-docker-image
+    params:
+      build: resource-tutorial/35_push_docker_image/docker
+
+resources:
+- name: build-container
+  type: git
+  source:
+    uri: https://github.com/DougOr/aspnetcoresite.git
+
+- name: aspnetcoresite-build-docker-image
+  type: docker-image
+  source:
+    email: {{docker-hub-email}}
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
+    repository: {{docker-hub-image-build}}

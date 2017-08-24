@@ -4,7 +4,14 @@
 # curl http://localhost:5000
 
 FROM microsoft/dotnet:latest
-COPY aspnetcoresite /app
+
+COPY bin /app
+COPY obj /app
+COPY wwwroot /app
+COPY AspNetCoreSite.csproj /app
+COPY Program.cs /app
+COPY Startup.cs /app
+
 WORKDIR /app
 
 EXPOSE 5000/tcp

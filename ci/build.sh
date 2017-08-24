@@ -1,5 +1,7 @@
 #!/bin/bash
-cd ci
+cd aspnetcoresite
 
 dotnet restore
 dotnet build
+
+docker build -t aspnetcoresite .

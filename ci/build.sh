@@ -1,5 +1,5 @@
 #!/bin/bash
-cd AspNetCoreSite
+cd ci
 
 dotnet restore
 dotnet build

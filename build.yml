@@ -6,4 +6,5 @@ image_resource:
     repository: doux/aspnetcoresite
 
 run:
+  path: pwd
   path: aspnetcoresite/ci/build.sh

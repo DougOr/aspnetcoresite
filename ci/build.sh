@@ -1,4 +1,5 @@
 #!/bin/bash
+pwd
 cd aspnetcoresite
 
 dotnet restore

@@ -6,5 +6,4 @@ image_resource:
     repository: doux/aspnetcoresite
 
 run:
-  path: dotnet restore
-  path: dotnet build
+  path: ls

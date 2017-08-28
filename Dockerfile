@@ -5,8 +5,8 @@
 
 FROM microsoft/dotnet:latest
 
-COPY aspnetcoresite/bin /app
-COPY aspnetcoresite/obj /app
+COPY bin /app
+#COPY obj /app
 #COPY wwwroot /app
 COPY AspNetCoreSite.csproj /app
 COPY Program.cs /app

@@ -1,6 +1,7 @@
 #!/bin/bash
 pwd
-cd aspnetcoresite
+#cd aspnetcoresite
+ls
 
 dotnet restore
 dotnet build

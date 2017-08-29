@@ -4,7 +4,7 @@
 # curl http://localhost:5000
 
 FROM microsoft/dotnet:latest
-COPY aspnetcoresite /app
+COPY bin /app
 WORKDIR /app
  
 RUN ["dotnet", "restore"]

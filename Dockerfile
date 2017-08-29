@@ -4,7 +4,12 @@
 # curl http://localhost:5000
 
 FROM microsoft/dotnet:latest
+
 COPY bin /app
+COPY AspNetCoreSite.csproj /app
+COPY Program.cs /app
+COPY Startup.cs /app
+
 WORKDIR /app
  
 RUN ["dotnet", "restore"]

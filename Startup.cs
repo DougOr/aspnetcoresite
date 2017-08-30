@@ -30,7 +30,7 @@ namespace AspNetCoreSite
                 await context.Response.WriteAsync("<b>");
                 await context.Response.WriteAsync("Hello World!");
                 await context.Response.WriteAsync("</b>");
-                await context.Response.WriteAsync("<p>v3.0");                                                
+                await context.Response.WriteAsync("<p>v2.5");                                                
             });
         }
     }

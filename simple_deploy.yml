@@ -1,0 +1,122 @@
+resource_types:
+
+resources:
+- name: github_source
+  type: git
+  source:
+    uri: https://github.com/DougOr/aspnetcoresite
+    branch: master
+
+- name: aspnetcoresite-docker-image-build
+  type: docker-image
+  source:
+    email: {{docker-hub-email}}
+    username: {{docker-hub-username}}
+    password: {{docker-hub-password}}
+    repository: {{docker-hub-image-build}}
+
+jobs:
+- name: pull_github_compile_pull_dockerimage_and_build
+  public: true
+  serial: true
+  plan:
+  - get: github_source
+    trigger: true
+  - task: build-cached-image
+    config:
+      platform: linux
+
+      image_resource:
+        type: docker-image
+        source: { repository: {{docker-hub-image-source}}  }
+
+      outputs:
+      - name: aspnetcore_output_build
+
+      inputs:
+      - name: github_source
+
+      run:
+        path: /bin/bash
+        args:
+        - -c
+        - |
+          echo "Current path of output build folder:"
+          pwd
+
+          echo "Files:"
+          ls
+
+          echo "Preparing to build docker image from output build folder:"
+          ls -R ./github_source
+          ls
+  
+          output_dir=github_source
+
+          cd github_source
+
+          dotnet restore
+          dotnet build
+
+          echo "AspNetCoreSite Build output:"
+          pwd
+          ls
+
+          rm Dockerfile
+
+          cat << EOF > "Dockerfile"
+          FROM microsoft/dotnet:latest
+
+          COPY bin /app
+
+          COPY AspNetCoreSite.csproj /app
+          COPY Program.cs /app
+          COPY Startup.cs /app
+
+          WORKDIR /app
+
+          RUN ["dotnet", "restore"]
+          RUN ["dotnet", "build"]
+
+          EXPOSE 5000/tcp
+          ENV ASPNETCORE_URLS http://*:5000
+
+          ENTRYPOINT ["dotnet", "run"]
+
+          EOF
+
+          echo "Dockerfile Build output:"
+          ls -R
+
+          echo "Moving to top folder:"
+          cd ..
+          ls
+  
+          cp -R github_source aspnetcore_output_build
+ 
+          echo "AspNetCore Output Build Folder:"
+          ls -R aspnetcore_output_build
+
+  - put: aspnetcoresite-docker-image-build
+    params:
+      build: aspnetcore_output_build/github_source
+
+- name: unit-tests
+  plan:
+  - get: aspnetcoresite-docker-image-build
+    passed: [pull_github_compile_pull_dockerimage_and_build]
+    trigger: true
+  - get: github_source
+    passed: [pull_github_compile_pull_dockerimage_and_build]
+  - task: run-tests
+    image: aspnetcoresite-docker-image-build
+    config:
+      platform: linux
+      inputs:
+      - name: github_source
+      run:
+        path: /bin/bash
+        args:
+        - -c
+        - |
+          echo "Unit Tests..."
